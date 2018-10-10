@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="tiger.dorm.mapper.DormManagementMapper">
+  <!-- 插入宿舍信息 -->
+  <insert id="insertDrom" parameterType="tiger.dorm.entity.Dorm">
+   insert into dorm(dorm_address,dorm_no,dorm_hold,dorm_status,dorm_use_person)
+   value(#{dormAddress},#{dormNo},#{dormHold},#{dormStatus},#{dormUsePerson}) 
+  </insert>
+  <!-- 插入网络地址 -->
+  <insert id="insertNetWorkAddresss" parameterType="tiger.dorm.entity.Dorm">
+  insert into network_address(dorm_id,dorm_address,dorm_no,bed_no,ip_address,subnet,
+  default_net,first_dns,spare_dns) 
+  
+  <foreach collection="dormInfos" item="dormInfo" open="values"  separator=",">
+  (#{dormId},#{dormAddress},#{dormNo},
+  #{dormInfo.bedNo},#{dormInfo.netWorkAddress.ipAddress},
+  #{dormInfo.netWorkAddress.subnet},#{dormInfo.netWorkAddress.defaultNet},
+  #{dormInfo.netWorkAddress.firstDns},#{dormInfo.netWorkAddress.spareDns})
+  </foreach>
+  
+  </insert>
+  </mapper>
