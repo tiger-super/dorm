@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 
+import tiger.dorm.entity.Dorm;
 import tiger.dorm.tool.AnalysisXLSX;
 
 public class TestXLSX {
@@ -62,6 +64,21 @@ public class TestXLSX {
      // 测试analysisiXLS
      @Test
      public void analysisiXLSXTest() throws IOException {
-    	 new AnalysisXLSX().analysisFile("C:\\Users\\TW\\Desktop\\dorm.xls");;
+    	 System.out.println(new AnalysisXLSX().analysisFile("C:\\Users\\TW\\Desktop\\dorm.xls"));
      }
+     @Test
+     public void testReflex() throws NoSuchFieldException, SecurityException {
+    	 Class c = Dorm.class;
+    	 Field f = c.getDeclaredField("dormHold");
+    	 System.out.println(f.getType()==int.class);
+    	 System.out.println(int.class);
+     }
+     @Test
+     public void StringToIntTest() {
+    	 String s = "306.0";
+          /*System.out.println(s.substring(0,s.lastIndexOf(".")));*/
+    	 System.out.println(s.indexOf("x"));
+    	 /*System.out.println(Integer.valueOf((s.split("."))[0].toString()));*/
+     }
+     
 }

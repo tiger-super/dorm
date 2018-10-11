@@ -2,6 +2,8 @@ package tiger.dorm.entity;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+@Component
 public class Dorm {
 	// 宿舍编号
 	private String dormId;

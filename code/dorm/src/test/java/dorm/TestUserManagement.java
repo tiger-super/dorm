@@ -24,7 +24,7 @@ public class TestUserManagement {
 	@Test
 	public void test() {
 		System.out.println("开始");
-		System.out.println(umm.QueryStudent().toString());
+	    System.out.println(umm.StudentLogin("10000"));
 		System.out.println("结束");
 	}
 	@Test
