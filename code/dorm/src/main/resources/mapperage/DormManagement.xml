@@ -8,11 +8,20 @@
    insert into dorm(dorm_address,dorm_no,dorm_hold,dorm_status,dorm_use_person)
    value(#{dormAddress},#{dormNo},#{dormHold},#{dormStatus},#{dormUsePerson}) 
   </insert>
+  
+  <!-- 通过xlsx批量插入宿舍信息 -->
+  <insert id="insertDromFromXLSX" parameterType="list">
+  insert into dorm(dorm_address,dorm_no,dorm_hold,dorm_status,dorm_use_person)
+   <foreach collection="list" item="dorm" open="values"  separator=",">
+  (#{dorm.dormAddress},#{dorm.dormNo},#{dorm.dormHold},#{dorm.dormStatus},#{dorm.dormUsePerson}) 
+   </foreach>
+  </insert>
+  
   <!-- 插入网络地址 -->
   <insert id="insertNetWorkAddresss" parameterType="tiger.dorm.entity.Dorm">
   insert into network_address(dorm_id,dorm_address,dorm_no,bed_no,ip_address,subnet,
   default_net,first_dns,spare_dns) 
-  
+  <!-- 插入宿舍入住信息 -->
   <foreach collection="dormInfos" item="dormInfo" open="values"  separator=",">
   (#{dormId},#{dormAddress},#{dormNo},
   #{dormInfo.bedNo},#{dormInfo.netWorkAddress.ipAddress},
