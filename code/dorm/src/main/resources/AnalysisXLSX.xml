@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dorm>
+<word name="宿舍id"  value="dormId"/>
+<word name="宿舍地址"  value="dormAddress"/>
+<word name="房间号"  value="dormNo"/>
+<word name="可容纳人数"  value="dormHold"/>
+<word name="状态"  value="dormStatus"/>
+<word name="已入住学生人数" value="dormUsePerson"/>
+
+<!-- 宿舍详细 -->
+<word name="床位"  value="bedNo"/>
+<word name="入住时间"  value="checkInTime"/>
+<word name="入住情况"  value="checkSituation"/>
+<!-- 学生 -->
+<word name="学号"  value="stuId"/>
+<word name="姓名"  value="stuName"/>
+<word name="性别"  value="stuSex"/>
+<!-- 网络 地址 -->
+<word name="ip地址" value="ipAddress"/>
+<word name="子网掩码" value="subnet"/>
+<word name="默认网关" value="defaultNet"/>
+<word name="首选DNS服务器" value="firstDns"/>
+<word name="备用dns" value="spareDns"/>
+<!-- 网络地址  -->
+</dorm>

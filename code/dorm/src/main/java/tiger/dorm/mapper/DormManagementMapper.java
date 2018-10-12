@@ -11,4 +11,5 @@ public interface DormManagementMapper {
      int insertDrom(Dorm dorm);
      int insertNetWorkAddresss(Dorm dorm);
      int insertDromFromXLSX(List<Dorm> dorms);
+     int insertDromInfoFromXLSX(Dorm dorm);
 }

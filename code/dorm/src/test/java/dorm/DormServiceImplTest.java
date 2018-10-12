@@ -23,5 +23,8 @@ public class DormServiceImplTest {
     public void batchAdditionDormTest() {
     	System.out.println(ds.batchAdditionDorm("C:\\Users\\TW\\Desktop\\dorm.xls"));
     }
- 
+    @Test
+    public void batchAdditionStudentCheckInDormTest() {
+    	System.out.println(ds.batchAdditionStudentCheckInDorm("C:\\Users\\TW\\Desktop\\入住详细.xlsx"));
+    }
 }

@@ -21,13 +21,22 @@
   <insert id="insertNetWorkAddresss" parameterType="tiger.dorm.entity.Dorm">
   insert into network_address(dorm_id,dorm_address,dorm_no,bed_no,ip_address,subnet,
   default_net,first_dns,spare_dns) 
-  <!-- 插入宿舍入住信息 -->
   <foreach collection="dormInfos" item="dormInfo" open="values"  separator=",">
   (#{dormId},#{dormAddress},#{dormNo},
   #{dormInfo.bedNo},#{dormInfo.netWorkAddress.ipAddress},
   #{dormInfo.netWorkAddress.subnet},#{dormInfo.netWorkAddress.defaultNet},
   #{dormInfo.netWorkAddress.firstDns},#{dormInfo.netWorkAddress.spareDns})
   </foreach>
-  
+  </insert>
+  <!-- 批量插入学生入住信息 -->
+  <insert id="insertDromInfoFromXLSX" parameterType="tiger.dorm.entity.Dorm">
+  insert into dorm_info(dorm_id,dorm_address,dorm_no,check_in__time,stu_id,
+  stu_name,stu_sex,bed_no,check_situation)
+  <foreach collection="dormInfos" item="dormInfo" open="values"  separator=",">
+  (#{dormId},#{dormAddress},#{dormNo},
+  #{dormInfo.checkInTime},#{dormInfo.student.stuId},
+  #{dormInfo.student.stuName},#{dormInfo.student.stuSex},
+  #{dormInfo.bedNo},#{dormInfo.checkSituation})
+  </foreach>
   </insert>
   </mapper>

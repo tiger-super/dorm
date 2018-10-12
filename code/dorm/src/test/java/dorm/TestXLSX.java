@@ -5,7 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -21,64 +25,104 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 
 import tiger.dorm.entity.Dorm;
+import tiger.dorm.entity.DormInfo;
 import tiger.dorm.tool.AnalysisXLSX;
 
 public class TestXLSX {
-	
+
 	@Test
 	public void test() throws IOException, EncryptedDocumentException, InvalidFormatException {
-/*	String filePath = "C:\\Users\\TW\\Desktop\\dorm.xlsx";	*/
-		String filePath = "C:\\Users\\TW\\Desktop\\dorm.xls";	
-	InputStream is = new FileInputStream(filePath);
- 	XSSFWorkbook wb = new XSSFWorkbook(is);
-	/*HSSFWorkbook wb = new HSSFWorkbook(is);*/
-	List list  = new ArrayList<Map<String,String>>();
-	Sheet sheet = wb.getSheetAt(0);
-	// 获得最大行
-      int rownum = sheet.getPhysicalNumberOfRows();
-      // 获得第一行
-      Row row = sheet.getRow(0);
-      // 获得最大列
-      int colnum = row.getPhysicalNumberOfCells();
-	   for(int i = 1; i < rownum;i++) {
-	    row = sheet.getRow(i);
-	    for(int j=0; j < colnum; j++) {
-	    	Cell cell = row.getCell(j);
-	   /* 	System.out.println(cell.getNumericCellValue());*/
-	    	if(cell.getCellType() == 0) {
-	    		System.out.println(cell.getNumericCellValue());
-	    	}else {
-	    		System.out.println(cell.toString());
-	    		
-	    	}
-	    }
-	   }
-	
-	
+		/* String filePath = "C:\\Users\\TW\\Desktop\\dorm.xlsx"; */
+		String filePath = "C:\\Users\\TW\\Desktop\\宿舍网络ip地址.xlsx";
+		InputStream is = new FileInputStream(filePath);
+		XSSFWorkbook wb = new XSSFWorkbook(is);
+		/* HSSFWorkbook wb = new HSSFWorkbook(is); */
+		List list = new ArrayList<Map<String, String>>();
+		Sheet sheet = wb.getSheetAt(0);
+		// 获得最大行
+		int rownum = sheet.getPhysicalNumberOfRows();
+		// 获得第一行
+		Row row = sheet.getRow(0);
+		// 获得最大列
+		int colnum = row.getPhysicalNumberOfCells();
+		for (int i = 1; i < rownum; i++) {
+			row = sheet.getRow(i);
+			for (int j = 0; j < colnum; j++) {
+				Cell cell = row.getCell(j);
+				/* System.out.println(cell.getNumericCellValue()); */
+				if (cell.getCellType() == 0) {
+					System.out.println(cell.getNumericCellValue());
+				} else {
+					System.out.println(cell.toString());
+
+				}
+			}
+		}
+
 	}
-     @Test
-     public void test1() {
-    	 String filePath = "C:\\Users\\TW\\Desktop\\dorm.xls";
-    	 System.out.println(filePath.endsWith(".xl"));
-     }
-     // 测试analysisiXLS
-     @Test
-     public void analysisiXLSXTest() throws IOException {
-    	 System.out.println(new AnalysisXLSX().analysisFile("C:\\Users\\TW\\Desktop\\dorm.xls"));
-     }
-     @Test
-     public void testReflex() throws NoSuchFieldException, SecurityException {
-    	 Class c = Dorm.class;
-    	 Field f = c.getDeclaredField("dormHold");
-    	 System.out.println(f.getType()==int.class);
-    	 System.out.println(int.class);
-     }
-     @Test
-     public void StringToIntTest() {
-    	 String s = "306.0";
-          /*System.out.println(s.substring(0,s.lastIndexOf(".")));*/
-    	 System.out.println(s.indexOf("x"));
-    	 /*System.out.println(Integer.valueOf((s.split("."))[0].toString()));*/
-     }
-     
+
+	@Test
+	public void test1() {
+		String filePath = "C:\\Users\\TW\\Desktop\\dorm.xls";
+		System.out.println(filePath.endsWith(".xl"));
+	}
+
+	// 测试analysisiXLS
+	@Test
+	public void analysisiXLSXTest() throws IOException {
+		System.out.println(new AnalysisXLSX().analysisFile("C:\\Users\\TW\\Desktop\\dorm.xls"));
+	}
+
+	@Test
+	public void testReflex() throws NoSuchFieldException, SecurityException {
+		Class c = Dorm.class;
+		Field f = c.getDeclaredField("dormHold");
+		System.out.println(f.getType() == int.class);
+		System.out.println(int.class);
+	}
+
+	@Test
+	public void StringToIntTest() {
+		String s = "306.0";
+		/* System.out.println(s.substring(0,s.lastIndexOf("."))); */
+		System.out.println(s.indexOf("x"));
+		/* System.out.println(Integer.valueOf((s.split("."))[0].toString())); */
+	}
+
+	@Test
+	public void IpAddressTest() throws NoSuchFieldException, SecurityException, NoSuchMethodException {
+		/*
+		 * Field[] f = Dorm.class.getDeclaredFields(); for(int i = 0 ; i < f.length ;
+		 * i++) {
+		 * System.out.println(f[i].getGenericType()+"----"+f[i].getType().isPrimitive())
+		 * ; }
+		 * 
+		 * System.out.println("............................................"); for(int i
+		 * = 0 ; i < f.length ; i++) {
+		 * System.out.println(f[i].getGenericType()+"----"+f[i].getType().isInterface())
+		 * ; } System.out.println("............................................");
+		 * for(int i = 0 ; i < f.length ; i++) {
+		 * System.out.println(f[i].getGenericType()+"----"+(f[i].getType() ==
+		 * String.class)); }
+		 */
+		Field[] fields = Dorm.class.getDeclaredFields();
+		 for(int i = 0 ; i < fields.length ; i++) {
+			System.out.println(fields[i].getName());
+		 }
+		Method method = Dorm.class.getMethod("setDormInfos", List.class);
+		Type[] types = method.getGenericParameterTypes();
+		for (Type type : types) {
+			if (type instanceof ParameterizedType) {
+				Type[] actualTypeArguments = ((ParameterizedType) type).getActualTypeArguments();
+				for (Type type2 : actualTypeArguments) {
+					System.out.println("泛型参数类型：" + type2);
+				}
+			}
+		}
+	}
+	@Test
+	public void test3() {
+		System.out.println("10000.0".indexOf("."));
+	}
+
 }

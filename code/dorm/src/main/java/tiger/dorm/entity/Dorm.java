@@ -89,7 +89,10 @@ public class Dorm {
 	@Override
 	public String toString() {
 		return "Dorm [dormId=" + dormId + ", dormAddress=" + dormAddress + ", dormNo=" + dormNo + ", dormHold="
-				+ dormHold + ", dormStatus=" + dormStatus + ", dormUsePerson=" + dormUsePerson + "]";
+				+ dormHold + ", dormStatus=" + dormStatus + ", dormUsePerson=" + dormUsePerson + ", dormInfos="
+				+ dormInfos + ", devices=" + devices + "]";
 	}
+
+
 
 }
