@@ -39,4 +39,10 @@
   #{dormInfo.bedNo},#{dormInfo.checkSituation})
   </foreach>
   </insert>
+  <insert id="insertDormDeviceFromXLSX" parameterType="tiger.dorm.entity.Dorm">
+ insert into device(dorm_id,dorm_address,dorm_no,device_name,device_number)
+  <foreach collection="devices" item="device" open="values"  separator=",">
+  (#{dormId},#{dormAddress},#{dormNo},#{device.deviceName},#{device.deviceNumber})
+  </foreach>
+  </insert>
   </mapper>

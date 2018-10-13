@@ -31,4 +31,11 @@ public class DormServiceImplTest {
     public void batchAdditionIpAddressTest() {
     	System.out.println(ds.batchAdditionIpAddress("C:\\Users\\TW\\Desktop\\宿舍网络ip地址.xlsx"));
     }
+    
+    
+    
+    @Test
+    public void batchAdditionDeviceTest() {
+    	System.out.println(ds.batchAdditionDevice("C:\\Users\\TW\\Desktop\\宿舍仪器.xlsx"));
+    }
 }

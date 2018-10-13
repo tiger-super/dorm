@@ -22,4 +22,9 @@
 <word name="首选DNS服务器" value="firstDns"/>
 <word name="备用dns" value="spareDns"/>
 <!-- 网络地址  -->
+
+
+<!-- 仪器设备 -->
+<word name="仪器名称" value="deviceName"/>
+<word name="仪器数量" value="deviceNumber"/>
 </dorm>
