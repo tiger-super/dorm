@@ -28,7 +28,6 @@ public class AnalysisXLSX {
     
    public List<Map<String,String>> analysisFile(String filePath) throws IOException {
 	   List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-	   if(isXLSX(filePath)) {
 		   InputStream is = new FileInputStream(filePath);
 		   XSSFWorkbook wb = new XSSFWorkbook(is);
 		   Sheet sheet = wb.getSheetAt(0);
@@ -43,12 +42,19 @@ public class AnalysisXLSX {
 			   Row row = sheet.getRow(i);
 			   for(int j = 0 ; j < colnum; j ++) {
 				   Cell cell = row.getCell(j);
-				   map.put(rowOne.getCell(j).toString(), cell.toString());
+				   if(!(cell == null || "".equals(cell.toString()))) {
+					   String value = cell.toString();
+					 if(cell.getCellType() == 0 && value.endsWith(".0")) {			
+						 value = value.substring(0, value.lastIndexOf("."));
+					 }
+		
+				   map.put(rowOne.getCell(j).toString(), value);
+				   }
 			   }
+			  if(map.size() !=0 && map.size() == colnum) {
 			  list.add(map);
+			  }
 		   }
-		   
-	   }
 	   return list;
    }
 }

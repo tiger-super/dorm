@@ -27,4 +27,8 @@ public class DormServiceImplTest {
     public void batchAdditionStudentCheckInDormTest() {
     	System.out.println(ds.batchAdditionStudentCheckInDorm("C:\\Users\\TW\\Desktop\\入住详细.xlsx"));
     }
+    @Test
+    public void batchAdditionIpAddressTest() {
+    	System.out.println(ds.batchAdditionIpAddress("C:\\Users\\TW\\Desktop\\宿舍网络ip地址.xlsx"));
+    }
 }

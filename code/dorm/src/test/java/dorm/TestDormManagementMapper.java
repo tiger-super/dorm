@@ -54,7 +54,7 @@ public class TestDormManagementMapper {
     	 
     	 System.out.println(dormInfos);
     	 
-    	 System.out.println(dmm.insertNetWorkAddresss(dorm));
+    	 System.out.println(dmm.insertNetWorkAddresssFromXLSX(dorm));
     }
     
     

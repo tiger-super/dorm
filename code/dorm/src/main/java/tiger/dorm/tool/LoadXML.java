@@ -20,7 +20,6 @@ public class LoadXML {
 		Document document = reader.read(ClassLoader.getSystemResourceAsStream(filePath));
 		// 获取根节点元素对象
 		Element node = document.getRootElement();
-		System.out.println("当前节点的名称：：" + node.getName());
 		// 获取当前节点的所有属性节点
 		List<Element> list = node.elements("word");
 		for (Element element : list) {

@@ -49,9 +49,11 @@ public class TestXLSX {
 			row = sheet.getRow(i);
 			for (int j = 0; j < colnum; j++) {
 				Cell cell = row.getCell(j);
+				System.out.println("类型为:"+cell.getCellType());
+				System.out.println("值为:"+cell.toString().endsWith(".0"));
 				/* System.out.println(cell.getNumericCellValue()); */
-				if (cell.getCellType() == 0) {
-					System.out.println(cell.getNumericCellValue());
+				 if(cell.getCellType() == 0 && cell.toString().endsWith(".0")) { 
+					System.out.println(cell.toString().substring(0, cell.toString().lastIndexOf(".")));
 				} else {
 					System.out.println(cell.toString());
 

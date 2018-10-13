@@ -18,7 +18,7 @@
   </insert>
   
   <!-- 插入网络地址 -->
-  <insert id="insertNetWorkAddresss" parameterType="tiger.dorm.entity.Dorm">
+  <insert id="insertNetWorkAddresssFromXLSX" parameterType="tiger.dorm.entity.Dorm">
   insert into network_address(dorm_id,dorm_address,dorm_no,bed_no,ip_address,subnet,
   default_net,first_dns,spare_dns) 
   <foreach collection="dormInfos" item="dormInfo" open="values"  separator=",">
