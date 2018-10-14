@@ -9,7 +9,7 @@ $(document).ready(function() {
 				data : $("#login").serialize(),
 				success : function(result) {
 					if (result == "true") {
-						window.location.href = "/dorm/login/success/jump"
+						window.location.href = "/dorm/login/success/jump?uId="+$(".form-id").val();
 					} else {
 						$(".dataJudge").removeClass("hide");
 						$(".text").text(result);
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 	})
 
-	$(".form-name").blur(function() {
+	$(".form-id").blur(function() {
 		blurNameJudge();
 	});
 
@@ -35,18 +35,18 @@ $(document).ready(function() {
 })
 
 function blurNameJudge() {
-	var value = $(".form-name").val();
+	var value = $(".form-id").val();
 	var ivalue = parseInt(value);
 	if (value == "") {
 		$(".name-tips").removeClass("hide");
 		$(".name-tips").text("账号不能为空");
-		$(".form-name").parent().addClass("has-error");
+		$(".form-id").parent().addClass("has-error");
 	} else if (isNaN(ivalue)) {
 		$(".name-tips").removeClass("hide");
 		$(".name-tips").text("非法账号");
-		$(".form-name").parent().addClass("has-error");
+		$(".form-id").parent().addClass("has-error");
 	} else {
-		$(".form-name").parent().removeClass("has-error");
+		$(".form-id").parent().removeClass("has-error");
 		$(".name-tips").addClass("hide");
 		isName = true;
 	}

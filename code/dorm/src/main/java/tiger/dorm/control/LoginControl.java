@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import tiger.dorm.entity.Student;
 import tiger.dorm.entity.User;
 import tiger.dorm.service.UserManagementService;
 
@@ -32,7 +33,14 @@ public class LoginControl {
     	return result;
     }
     @RequestMapping(value="/success/jump")
-    public String LoginSuccessJump() {
-    	return "index";
+    public ModelAndView LoginSuccessJump(String uId) {
+    	ModelAndView mav = new ModelAndView();
+    	mav.setViewName("index");
+    	Student student = ums.queryStudent(uId);
+    	User user = new User();
+    	user.setuName(student.getStuName());
+    	user.setuType("学生");
+    	mav.addObject(user);
+    	return mav;
     }
 }

@@ -3,6 +3,7 @@ package tiger.dorm.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tiger.dorm.entity.Student;
 import tiger.dorm.entity.User;
 import tiger.dorm.mapper.UserManagementMapper;
 import tiger.dorm.service.UserManagementService;
@@ -30,5 +31,9 @@ public class UserManagementServiceImpl implements UserManagementService{
 		}
 		return result;
 	 }
+	@Override
+	public Student queryStudent(String stuId) {
+		return umm.queryStudent(stuId);
+	}
 
 }

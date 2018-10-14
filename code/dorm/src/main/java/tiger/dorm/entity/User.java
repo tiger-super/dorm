@@ -1,9 +1,18 @@
 package tiger.dorm.entity;
 
 public class User {
+	private String uName;
 	private String uId;
 	private String uPassword;
 	private String uType;
+
+	public String getuName() {
+		return uName;
+	}
+
+	public void setuName(String uName) {
+		this.uName = uName;
+	}
 
 	public String getuId() {
 		return uId;
@@ -31,7 +40,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [uId=" + uId + ", uPassword=" + uPassword + ", uType=" + uType + "]";
+		return "User [uName=" + uName + ", uId=" + uId + ", uPassword=" + uPassword + ", uType=" + uType + "]";
 	}
 
 }

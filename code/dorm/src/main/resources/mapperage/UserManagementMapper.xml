@@ -6,4 +6,9 @@
   <select id="StudentLogin"  resultType="String" parameterType="String">
       select id_card from student where stu_id = #{parameter}
   </select>
+  
+    <select id="queryStudent"  resultType="tiger.dorm.entity.Student" parameterType="String">
+      select stu_name from student where stu_id = #{parameter}
+  </select>
+  
   </mapper>
