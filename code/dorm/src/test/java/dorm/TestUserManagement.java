@@ -27,8 +27,5 @@ public class TestUserManagement {
 	    System.out.println(umm.StudentLogin("10000"));
 		System.out.println("结束");
 	}
-	@Test
-	public void test1() {
-		umsi.say();
-	}
+
 }

@@ -7,5 +7,5 @@ import tiger.dorm.entity.Student;
 public interface UserManagementMapper {
 	 // 学生登录
      String StudentLogin(String stuId);
-     //
+     // 
 }
