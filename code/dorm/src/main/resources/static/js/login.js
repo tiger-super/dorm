@@ -1,19 +1,67 @@
+var isName = false;
+var isPassowrd = false;
 $(document).ready(function() {
-	 $("#login").submit(function() {
-		$.ajax({
-				url:'/dorm/login/LoginVerification',
-				type:"get",
-				  data:$("#login").serialize(),
-		success: function(result) {
-			if (result == "true") {
-				  window.location.href = "/dorm/login/success/jump"
-			} else {
-				$(".alert").removeClass("hide");
-				$(".text").text(result);
-			}
+	$("#login").submit(function() {
+		if (isName && isPassowrd) {
+			$.ajax({
+				url : '/dorm/login/LoginVerification',
+				type : "get",
+				data : $("#login").serialize(),
+				success : function(result) {
+					if (result == "true") {
+						window.location.href = "/dorm/login/success/jump"
+					} else {
+						$(".dataJudge").removeClass("hide");
+						$(".text").text(result);
+					}
+				}
+			});
 
-		}}
-		);
-      return false;
+		} else {		
+				blurNameJudge();
+				blurPasswordJudge();
+		}
+		return false;
+
 	})
+
+	$(".form-name").blur(function() {
+		blurNameJudge();
+	});
+
+	$(".form-password").blur(function() {
+		blurPasswordJudge();
+	});
 })
+
+function blurNameJudge() {
+	var value = $(".form-name").val();
+	var ivalue = parseInt(value);
+	if (value == "") {
+		$(".name-tips").removeClass("hide");
+		$(".name-tips").text("账号不能为空");
+		$(".form-name").parent().addClass("has-error");
+	} else if (isNaN(ivalue)) {
+		$(".name-tips").removeClass("hide");
+		$(".name-tips").text("非法账号");
+		$(".form-name").parent().addClass("has-error");
+	} else {
+		$(".form-name").parent().removeClass("has-error");
+		$(".name-tips").addClass("hide");
+		isName = true;
+	}
+}
+
+function blurPasswordJudge() {
+	var value = $(".form-password").val();
+	if (value == "") {
+		$(".password-tips").removeClass("hide");
+		$(".password-tips").text("密码不能为空");
+		$(".form-password").parent().addClass("has-error");
+		isPassowrd = false;
+	} else {
+		$(".form-password").parent().removeClass("has-error");
+		$(".password-tips").addClass("hide");
+		isPassowrd = true;
+	}
+}

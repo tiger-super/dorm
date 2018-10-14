@@ -20,6 +20,16 @@
 	-o-transform:  translateY(-50%);
 	transform:  translateY(-50%);
 }
+
+.form-group {
+	margin-bottom: 10px;
+}
+
+.alert {
+	height: 35px;
+	line-height: 8px
+}
+
 </style>
 </head>
 
@@ -28,17 +38,27 @@
 		class="col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 container col-center-block">
 		<form class="form-signin form-horizontal" id="login">
 			<div class="form-group">
-				<label>账号</label> <input class="form-control" type="text"
+				<label>账号</label> <input class="form-control form-name" type="text"
 					name="uId">
 			</div>
 			<div class="form-group">
-				<label>密码</label> <input class="form-control" type="password"
-					name="uPassword">
+				<div class="alert alert-warning hide name-tips" style="margin: 0px;"></div>
 			</div>
+
+
+			<div class="form-group">
+				<label>密码</label> <input class="form-control form-password"
+					type="password" name="uPassword">
+			</div>
+			<div class="form-group">
+				<div class="alert alert-warning hide password-tips"
+					style="margin: 0px;"></div>
+			</div>
+
 
 			<div class="form-group">
 				<label class="col-sm-1 control-label"
-					style="padding-left: 0px; padding-right: 1%;">类型</label>
+					style="padding-left: 0px; padding-right: 2%;">类型</label>
 				<div class="select col-sm-4">
 					<select class="form-control" name="uType">
 						<option>学生</option>
@@ -57,8 +77,8 @@
 			</div>
 
 			<div class="form-group ">
-				<div class="alert alert-danger alert-dismissable hide" role="alert">
-					<strong class="text">警告</strong>
+				<div class="alert alert-danger alert-dismissable hide dataJudge" role="alert">
+					<strong class="text"> </strong>
 				</div>
 			</div>
 
