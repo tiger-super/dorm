@@ -15,6 +15,7 @@
 
 <script
 	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/index.js"></script>
 
 <style>
 #accordion {
@@ -84,7 +85,7 @@
 						<li class="list-group-item "><a>学生入住信息修改</a></li>
 						</c:if>
 						  <c:if test="${user.uType eq  '学生'  }">
-						<li class="list-group-item "><a href="#" id="stuInfo">学生入住信息查询</a></li>
+						<li class="list-group-item "><a href="javascript:void(0);" id="stuInfo">学生入住信息查询</a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -157,7 +158,11 @@
 		</c:if>
 	</div>
 	
-    
+    <div class="col-sm-10">
+	<iframe class="col-sm-12 loadInfo" 
+	style="border: none;padding: 0px;margin: 0px;height: 500px;"> </iframe>
+	
+	</div>
 
 </body>
 

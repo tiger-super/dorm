@@ -57,5 +57,13 @@ public class TestDormManagementMapper {
     	 System.out.println(dmm.insertNetWorkAddresssFromXLSX(dorm));
     }
     
+    // 测试通过学号查询宿舍入住信息的dao层方法
+    @Test
+    public void queryStudentDormInfoFromStuIdTest() {
+    	Dorm dorm = dmm.queryStudentDormInfoFromStuId("1");
+    	System.out.println(dorm);
+    }
+    
+    
     
 }

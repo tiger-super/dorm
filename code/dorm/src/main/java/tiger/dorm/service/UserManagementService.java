@@ -1,5 +1,7 @@
 package tiger.dorm.service;
 
+import org.springframework.stereotype.Service;
+
 import tiger.dorm.entity.Student;
 import tiger.dorm.entity.User;
 

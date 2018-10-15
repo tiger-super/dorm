@@ -45,4 +45,22 @@
   (#{dormId},#{dormAddress},#{dormNo},#{device.deviceName},#{device.deviceNumber})
   </foreach>
   </insert>
+<!-- 通过学号查询学生入住信息 -->
+  <select id="queryStudentDormInfoFromStuId" parameterType="String" resultMap="dorm_stuId">
+      select dorm_address,dorm_no,stu_id,stu_name,stu_sex,bed_no from dorm_info where stu_id = #{parameter}
+  </select>
+  <resultMap type="tiger.dorm.entity.Dorm" id="dorm_stuId">
+  <result property="dormAddress" column="dorm_address"/>
+   <result property="dormNo" column="dorm_no"/>
+   <collection property="dormInfos" ofType="tiger.dorm.entity.DormInfo">
+   <result  property="bedNo" column="bed_no"/>
+   <association property="student" javaType="tiger.dorm.entity.Student">
+   <result property="stuId" column="stu_id"/>
+   <result property="stuName" column="stu_name"/>
+   <result property="stuSex" column="stu_sex"/>
+   </association>
+   
+   </collection>
+  </resultMap>
+  
   </mapper>

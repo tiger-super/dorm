@@ -17,5 +17,7 @@ public interface DormManagementMapper {
      int insertDromInfoFromXLSX(Dorm dorm);
      // 通过xlsx插入宿舍设备信息
      int insertDormDeviceFromXLSX(Dorm dorm);
+     // 通过学号查询学生入住信息
+     Dorm queryStudentDormInfoFromStuId(String stuId);
      
 }

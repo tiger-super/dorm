@@ -293,4 +293,9 @@ public class DormServiceImpl implements DormService {
 		return result;
 	}
 
+	@Override
+	public Dorm queryStudentDormInfoFromStuId(String stuId) {
+		return dmm.queryStudentDormInfoFromStuId(stuId);
+	}
+
 }
