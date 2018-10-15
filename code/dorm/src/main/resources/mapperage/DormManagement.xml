@@ -63,4 +63,16 @@
    </collection>
   </resultMap>
   
+  
+  <!-- 查询所有的宿舍地址 -->
+  <select id="queryAllDormAddress" resultType="String">
+   select distinct dorm_address from dorm
+  </select>
+  
+  
+    
+  <!-- 根据宿舍地址查询所有的房间号 -->
+  <select id="accordingToDormAddressQueryAllDormNo" parameterType="String" resultType="String">
+   select  dorm_no from dorm where dorm_address = #{parameter}
+  </select>
   </mapper>

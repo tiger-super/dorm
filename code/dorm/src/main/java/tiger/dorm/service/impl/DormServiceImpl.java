@@ -298,4 +298,6 @@ public class DormServiceImpl implements DormService {
 		return dmm.queryStudentDormInfoFromStuId(stuId);
 	}
 
+	
+
 }

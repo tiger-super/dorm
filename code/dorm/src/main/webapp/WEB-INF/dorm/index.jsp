@@ -159,7 +159,7 @@
 	</div>
     <div class="col-sm-10">
 	<iframe class="col-sm-12 load-info" 
-	style="border: none;padding: 0px;margin: 0px;height: 500px;"> </iframe>
+	style="border: none;padding: 0px;margin: 0px;height: 500px; " src="/dorm/dormInfo/show"> </iframe>
 	
 	</div>
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="tiger.dorm.mapper.DeviceManagementMapper">
+  
+  
+  <!-- 查询所有的宿舍地址 -->
+  <select id="queryAllDormAddress" resultType="String">
+   select distinct dorm_address from device
+  </select>
+  
+  
+    
+  <!-- 根据宿舍地址查询所有的房间号 -->
+  <select id="accordingToDormAddressQueryAllDormNo" parameterType="String" resultType="String">
+   select distinct dorm_no from device where dorm_address = #{parameter}
+  </select>
+  
+    <!-- 根据宿舍地址和房间号查询所有的设备 -->
+  <select id="accordingToDormAddressAndDormNoQueryAllDeviceName" parameterType="tiger.dorm.entity.Device" resultType="String">
+   select  device_name from device where dorm_address = #{dormAddress} and dorm_no = #{dormNo}
+  </select>
+  
+  </mapper>

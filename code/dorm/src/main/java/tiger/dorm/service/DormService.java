@@ -1,5 +1,7 @@
 package tiger.dorm.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import tiger.dorm.entity.Dorm;
@@ -19,6 +21,4 @@ public interface DormService {
      
      // 根据学号查询入住信息
      public Dorm queryStudentDormInfoFromStuId(String stuId);
-     
-     
 }

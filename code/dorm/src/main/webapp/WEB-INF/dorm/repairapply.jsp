@@ -43,7 +43,7 @@
 				</div>
 				<label for="firstname" class="col-sm-2 control-label">电话：</label>
 				<div class="col-sm-3">
-					<input type="text" class="form-control" id="phone"
+					<input type="text" class="form-control" id="repairApplyPhone"
 						placeholder="请留下您的电话">
 				</div>
 			</div>
@@ -52,15 +52,15 @@
 			<div class="form-group">
 				<label for="firstname" class="col-sm-3 control-label">宿舍地区：</label>
 				<div class="col-sm-3">
-					<select class="form-control">
-						<option>请选择宿舍地区</option>
+					<select class="form-control" name="dormAddress" id="dormAddress">
+						<option value=0>请选择宿舍地区</option>
 					</select>
 				</div>
 
 				<label for="firstname" class="col-sm-2 control-label">宿舍房间号：</label>
 				<div class="col-sm-3">
-					<select class="form-control">
-						<option>请选择宿舍房间号</option>
+					<select class="form-control" name="dormNo" id="dormNo">
+						<option value=0>请选择宿舍房间号</option>
 					</select>
 				</div>
 			</div>
@@ -68,21 +68,21 @@
 			<div class="form-group">
 				<label for="firstname" class="col-sm-3 control-label">维修设备名称：</label>
 				<div class="col-sm-3">
-					<select class="form-control">
-						<option>请选择维修设备名称</option>
+					<select class="form-control" name="repairInstrument" id="repairInstrument">
+						<option value=0>请选择维修设备名称</option>
 					</select>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="firstname" class="col-sm-3 control-label">维修原因：</label>
-				<div class="col-sm-8">
+				<div class="col-sm-8" name="repairReason">
 					<textarea class="form-control" rows="4" name=textarea
 						placeholder="请填写维修的原因"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-10" style="padding: 0px;"></div>
-				<button type="submit" class="btn btn-success  ">提交</button>
+				<button type="submit" class="btn btn-success" id="repair-commit">提交</button>
 			</div>
 
 		</form>

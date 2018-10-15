@@ -1,11 +1,12 @@
 package tiger.dorm.control;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import tiger.dorm.entity.Dorm;
 import tiger.dorm.service.DormService;
 
@@ -27,4 +28,6 @@ public class DormManagerControl {
 		System.out.println(dorm);
 		return dorm;
 	}
+   
+	
 }
