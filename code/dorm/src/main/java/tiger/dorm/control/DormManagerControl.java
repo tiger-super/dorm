@@ -10,12 +10,12 @@ import tiger.dorm.entity.Dorm;
 import tiger.dorm.service.DormService;
 
 @Controller
-@RequestMapping("/dorm/show")
+@RequestMapping("/dorm/dormInfo")
 public class DormManagerControl {
 	@Autowired
 	DormService ds ;
 	// 展示查询学生入住信息的界面
-	@RequestMapping("/query/student")
+	@RequestMapping("/show")
     public String showQueryStudentUseDorm() {
     	return "querystudentdorminfo";
     }

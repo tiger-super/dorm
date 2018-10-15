@@ -85,7 +85,7 @@
 						<li class="list-group-item "><a>学生入住信息修改</a></li>
 						</c:if>
 						  <c:if test="${user.uType eq  '学生'  }">
-						<li class="list-group-item "><a href="javascript:void(0);" id="stuInfo">学生入住信息查询</a></li>
+						<li class="list-group-item "><a href="javascript:void(0);" id="stu-dorm-info">学生入住信息查询</a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -123,7 +123,7 @@
 				<div class="panel-body" style="border: none;">
 					<ul class="life ">
 					 <c:if test="${user.uType eq '学生' }">
-						<li class="list-group-item "><a>维修申请</a></li>
+						<li class="list-group-item "><a href="javascript:void(0);" id="repair-apply"> 维修申请</a></li>
 						</c:if>
 						 <c:if test="${user.uType eq '宿舍管理员' }">
 						<li class="list-group-item "><a>维修单查询</a></li>
@@ -157,9 +157,8 @@
 		</div>
 		</c:if>
 	</div>
-	
     <div class="col-sm-10">
-	<iframe class="col-sm-12 loadInfo" 
+	<iframe class="col-sm-12 load-info" 
 	style="border: none;padding: 0px;margin: 0px;height: 500px;"> </iframe>
 	
 	</div>
