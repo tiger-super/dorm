@@ -3,12 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    <mapper namespace="tiger.dorm.mapper.UserManagementMapper">
-  <select id="StudentLogin"  resultType="String" parameterType="String">
+   <!-- 学生登陆 -->
+  <select id="studentLogin"  resultType="String" parameterType="String">
       select id_card from student where stu_id = #{parameter}
   </select>
-  
-    <select id="queryStudent"  resultType="tiger.dorm.entity.Student" parameterType="String">
+    <!-- 教授登陆 -->
+     <select id="teacherLogin"  resultType="String" parameterType="String">
+      select id_card from teacher where tea_id = #{parameter}
+  </select>
+    <!-- 管理员登陆 -->
+     <select id="housemasterLogin"  resultType="String" parameterType="String">
+      select id_card from housemaster where housemaster_id = #{parameter}
+  </select>
+    <select id="queryStudentNameFromId"  resultType="String" parameterType="String">
       select stu_name from student where stu_id = #{parameter}
   </select>
-  
+    <select id="queryTeacherNameFromId"  resultType="String" parameterType="String">
+      select tea_name from teacher where tea_id = #{parameter}
+  </select>
+  <select id="queryHousemasterNameFromId"  resultType="String" parameterType="String">
+      select housemaster_name from housemaster where housemaster_id = #{parameter}
+  </select>
+    
+    
   </mapper>

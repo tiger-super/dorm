@@ -1,6 +1,6 @@
 package tiger.dorm.entity;
 
-public class Student {
+public class  Student {
 	// 学号
     private String stuId;
     // 姓名

@@ -56,7 +56,7 @@
 			</div>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">欢迎你！<span class="glyphicon glyphicon-user"></span>${user.uName}
+				<li><a href="#">欢迎你！<span class="glyphicon glyphicon-user"></span>${sessionScope.userSession.uName}
 				</a></li>
 				<li><a href="/dorm/login/show">退出</a></li>
 			</ul>
