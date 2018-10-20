@@ -47,7 +47,7 @@
 </style>
 
 <body>
-
+${sessionScope.userSession}
 	<div class="navbar navbar-default " style="margin: 0px;">
 		<div class="container">
 
@@ -75,7 +75,7 @@
 			<div id="collapseOne" class="panel-collapse collapse in">
 				<div class="panel-body" style="border: none;">
 					<ul class="life ">
-                        <c:if test="${user.uType eq  '教师' } ">
+                        <c:if test="${sessionScope.userSession.uType eq  '教师'  }">
 						<li class="list-group-item "><a>宿舍信息添加</a></li>
 						<li class="list-group-item "><a>宿舍信息删除</a></li>
 						<li class="list-group-item "><a>宿舍信息修改</a></li>
@@ -84,7 +84,7 @@
 						<li class="list-group-item "><a>学生入住信息删除</a></li>
 						<li class="list-group-item "><a>学生入住信息修改</a></li>
 						</c:if>
-						  <c:if test="${user.uType eq  '学生'  }">
+						  <c:if test="${sessionScope.userSession.uType eq  '学生'  }">
 						<li class="list-group-item "><a href="javascript:void(0);" id="stu-dorm-info">学生入住信息查询</a></li>
 						</c:if>
 					</ul>
@@ -92,7 +92,7 @@
 			</div>
 		</div>
 
-       <c:if test="${user.uType eq  '学生'  }">
+       <c:if test="${sessionScope.userSession.uType eq  '学生'  }">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4 class="panel-title">
@@ -122,10 +122,16 @@
 			<div id="collapseFour" class="panel-collapse collapse">
 				<div class="panel-body" style="border: none;">
 					<ul class="life ">
-					 <c:if test="${user.uType eq '学生' }">
+					<c:if test="${sessionScope.userSession.uType eq  '教师'  }">
+					<li class="list-group-item "><a>设备添加</a></li>
+					<li class="list-group-item "><a>设备删除</a></li>
+					<li class="list-group-item "><a>设备修改</a></li>
+					<li class="list-group-item "><a>设备查询</a></li>
+					</c:if>
+					 <c:if test="${sessionScope.userSession.uType eq '学生' }">
 						<li class="list-group-item "><a href="javascript:void(0);" id="repair-apply"> 维修申请</a></li>
 						</c:if>
-						 <c:if test="${user.uType eq '宿舍管理员' }">
+						 <c:if test="${sessionScope.userSession.uType eq '宿舍管理员' }">
 						<li class="list-group-item "><a>维修单查询</a></li>
 						<li class="list-group-item "><a>维修处理</a></li>
 						</c:if>
@@ -136,7 +142,7 @@
 
 
 
-         <c:if test="${user.uType eq '教师'} ">
+         <c:if test="${sessionScope.userSession.uType eq '教师'} ">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4 class="panel-title">

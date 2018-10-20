@@ -15,7 +15,7 @@ public class RepairManagerControl {
 	// 维修申请的界面显示
 	 @RequestMapping("/show")
 	    public String showRepairApply() {
-	    	return "repairapply";
+	    	return "repair/repairapply";
 	    }
 	 
 	 // 接收维修单的申请

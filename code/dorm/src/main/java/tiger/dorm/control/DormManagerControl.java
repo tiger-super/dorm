@@ -18,7 +18,7 @@ public class DormManagerControl {
 	// 展示查询学生入住信息的界面
 	@RequestMapping("/show")
     public String showQueryStudentUseDorm() {
-    	return "querystudentdorminfo";
+    	return "dorm/querystudentdorminfo";
     }
 	// 根据学号查询入住信息
 	@RequestMapping("/query/sutId")
