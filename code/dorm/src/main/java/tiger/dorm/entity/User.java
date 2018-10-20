@@ -1,6 +1,8 @@
 package tiger.dorm.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
 	private String uName;
 	private String uId;
 	private String uPassword;
