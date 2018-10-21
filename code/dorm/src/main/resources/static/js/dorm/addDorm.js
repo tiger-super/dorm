@@ -18,4 +18,8 @@ $(document).ready(function() {
 		 var response = data.response;
 		 alert(response.result);
 	 })
+	 
+	 $("#download").click(function(){
+		 window.location.href="/download/dorm";
+	 })
 })

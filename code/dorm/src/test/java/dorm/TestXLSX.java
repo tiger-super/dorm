@@ -1,5 +1,7 @@
 package dorm;
 
+import static org.mockito.Mockito.CALLS_REAL_METHODS;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,9 +26,12 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
 import tiger.dorm.entity.Dorm;
 import tiger.dorm.entity.DormInfo;
 import tiger.dorm.tool.AnalysisXLSX;
+import tiger.dorm.tool.XLSXMould;
 
 public class TestXLSX {
 
@@ -125,6 +130,17 @@ public class TestXLSX {
 	@Test
 	public void test3() {
 		System.out.println("10000.0".indexOf("."));
+	}
+	@Test
+	public void test4() throws RowsExceededException, WriteException, IOException {
+		XLSXMould cxm = new XLSXMould();
+		List<String> list = new ArrayList<String>();
+		list.add("宿舍地址");
+		list.add("房间号");
+		list.add("可容纳人数");
+		list.add("状态");
+		list.add("已入住学生人数");
+		cxm.create("C:\\Users\\TW\\Desktop\\宿舍.xlsx",list );
 	}
 
 }
