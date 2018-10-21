@@ -14,6 +14,7 @@
         <script type="text/javascript" src="/static/js/dorm/addDorm.js" ></script>	
 	<body>
 	<div class ="file-loading">
+       <label></label>
        <input id = "fileupload" name="fileupload" type = "file"  multiple>
        </div>
 	</body>
