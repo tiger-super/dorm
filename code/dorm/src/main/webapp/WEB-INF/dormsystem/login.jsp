@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title></title>
 </head>
-<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
 <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/static/js/login.js"></script>
 <style>

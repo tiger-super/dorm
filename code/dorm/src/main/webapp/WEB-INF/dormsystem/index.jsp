@@ -8,9 +8,8 @@
 <meta charset="UTF-8">
 <title></title>
 </head>
-<link rel="stylesheet" href="/static/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
+
 <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
 
 <script
@@ -47,7 +46,6 @@
 </style>
 
 <body>
-${sessionScope.userSession}
 	<div class="navbar navbar-default " style="margin: 0px;">
 		<div class="container">
 
@@ -164,8 +162,20 @@ ${sessionScope.userSession}
 		</c:if>
 	</div>
     <div class="col-sm-10">
+  
 	<iframe class="col-sm-12 load-info" 
-	style="border: none;padding: 0px;margin: 0px;height: 500px; " src="/dorm/dormInfo/show"> </iframe>
+	style="border: none;padding: 0px;margin: 0px;height: 500px; " src=
+	<c:choose>
+	<c:when test="${sessionScope.userSession.uType eq '学生'}">
+	"/dorm/dormInfo/show"
+	</c:when>
+	<c:when test="${sessionScope.userSession.uType eq '教师'}">
+	"/dorm/show"
+	</c:when>
+	<c:when test="${sessionScope.userSession.uType eq '宿舍管理员'}">
+	</c:when>
+	</c:choose>
+	> </iframe>
 	
 	</div>
 

@@ -11,23 +11,27 @@ import tiger.dorm.entity.Dorm;
 import tiger.dorm.service.DormService;
 
 @Controller
-@RequestMapping("/dorm/dormInfo")
+@RequestMapping("/dorm")
 public class DormManagerControl {
 	@Autowired
 	DormService ds ;
 	// 展示查询学生入住信息的界面
-	@RequestMapping("/show")
+	@RequestMapping("/dormInfo/show")
     public String showQueryStudentUseDorm() {
     	return "dorm/querystudentdorminfo";
     }
 	// 根据学号查询入住信息
-	@RequestMapping("/query/sutId")
+	@RequestMapping("/query/dromInfo")
     @ResponseBody
 	public Dorm queryStudentFromStuId(String stuId) {
 		Dorm dorm =  ds.queryStudentDormInfoFromStuId(stuId);
 		System.out.println(dorm);
 		return dorm;
 	}
-   
+	//展示宿舍入住信息
+	@RequestMapping("/show")
+	public String showQueryDorm() {
+		return "dorm/addDorm";
+	}
 	
 }

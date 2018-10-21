@@ -1,7 +1,7 @@
 $(document).ready(function() {
 $(".queryStuId").click(function(){
 		$.ajax({
-			url:'/dorm/dormInfo/query/sutId',
+			url:'/dorm/query/dromInfo',
 			type:'get',
 			data:{'stuId':$(".stu-id").val()},
 			dataType:'json',
