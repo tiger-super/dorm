@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title></title>
 </head>
-<link rel="stylesheet" href="/static//css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
 <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/static/js/repaircommit.js"></script>
 <style>
@@ -98,7 +98,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-10" style="padding: 0px;"></div>
-				<button type="submit" class="btn btn-success" id="repair-commit">提交</button>
+				<button  class="btn btn-success" id="repair-commit">提交</button>
 			</div>
 
 		</form>

@@ -6,4 +6,9 @@ $(document).ready(function() {
 	$("#repair-apply").click(function(){
 		$(".load-info").attr("src","/dorm/repair/show");	
 	})
+	
+	
+	$("#addDorm").click(function(){
+		$(".load-info").attr("src","/dorm/show");	
+	})
 })

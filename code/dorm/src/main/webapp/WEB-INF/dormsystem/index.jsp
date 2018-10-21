@@ -74,7 +74,7 @@
 				<div class="panel-body" style="border: none;">
 					<ul class="life ">
                         <c:if test="${sessionScope.userSession.uType eq  '教师'  }">
-						<li class="list-group-item "><a>宿舍信息添加</a></li>
+						<li class="list-group-item "><a href="javascript:void(0);" id="addDorm">宿舍信息添加</a></li>
 						<li class="list-group-item "><a>宿舍信息删除</a></li>
 						<li class="list-group-item "><a>宿舍信息修改</a></li>
 						<li class="list-group-item "><a>宿舍信息查询</a></li>

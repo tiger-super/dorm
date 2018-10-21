@@ -23,9 +23,8 @@ import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 @Component
 public class XLSXMould {
-	
-	@Resource
-	private ResourceLoader resourceLoader;
+   @Resource
+   private ResourceLoader resourceLoader;
    public void create(String path,List<String> list) throws IOException, RowsExceededException, WriteException {
 
 	   OutputStream os = new FileOutputStream(path);
@@ -48,15 +47,20 @@ public class XLSXMould {
 	   InputStream inputStream = null;
 	   ServletOutputStream servletOutputStream = null;
        try {
+       // 获得资源路径
 	   org.springframework.core.io.Resource resource = resourceLoader.getResource("classpath:"+path);
-       response.setContentType("application/vnd.ms-excel");
+       // 设置相应头
+	   response.setContentType("application/vnd.ms-excel");
        response.addHeader("Cache-Control", "no-cache, no-store, must-revalidate");
        response.addHeader("charset", "utf-8");
        response.addHeader("Pragma", "no-cache");
        String encodeName = URLEncoder.encode(filename, StandardCharsets.UTF_8.toString());
        response.setHeader("Content-Disposition", "attachment; filename=\"" + encodeName + "\"; filename*=utf-8''" + encodeName);
+       // 获得资源流
        inputStream = resource.getInputStream();
+       // 获得响应流
        servletOutputStream = response.getOutputStream();
+       // 通过ioutils进行流的复制
        IOUtils.copy(inputStream, servletOutputStream);
        response.flushBuffer();
 	} catch (Exception e) {

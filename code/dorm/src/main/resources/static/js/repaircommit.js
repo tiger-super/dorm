@@ -133,8 +133,10 @@ $(document)
 						}
 
 					})
-					$("#repair-commit").click(function() {
+					$("#repair-apply").submit(function() {
+						console.log("提交")
 						if(judgeInfoComplete() == true){
+							console.log("X")
 						$
 						.ajax({
 							url : '/dorm/repair/accept',
@@ -195,4 +197,5 @@ function judgeInfoComplete(){
 		result = false;
 		$("#repairReason").parent().addClass("has-error");
 	}
+	return result;
 }
