@@ -10,6 +10,7 @@ import java.util.Set;
 import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import tiger.dorm.entity.Device;
 import tiger.dorm.entity.Dorm;
@@ -34,14 +35,13 @@ public class DormServiceImpl implements DormService {
 	private DormManagementMapper dmm;
 
 	@Override
-	public String batchAdditionDorm(String filePath) {
+	public String batchAdditionDorm(MultipartFile file) {
 		List<Dorm> dorms = new ArrayList<Dorm>();
 		String result = "";
 		// 调用解析工具
 		List<Map<String, String>> list;
-		if (aXLSX.isXLSX(filePath)) {
 			try {
-				list = aXLSX.analysisFile(filePath);
+				list = aXLSX.analysisFile(file);
 				// 获得对应的映射
 				Map<String, String> map = loadXML.load("AnalysisXLSX.xml");
 				for (Map<String, String> xlxs : list) {
@@ -71,21 +71,19 @@ public class DormServiceImpl implements DormService {
 			} catch (DocumentException e) {
 				result = "AnalysisXLSX.xml配置文件出错";
 			}
-		} else {
-			result = "文件格式错误";
-		}
+		
 		return result;
 	}
 
 	// 学生入住信息
 	@Override
-	public String batchAdditionStudentCheckInDorm(String filePath) {
+	public String batchAdditionStudentCheckInDorm(MultipartFile file) {
 		String result = "";
 		List<Dorm> dorms = new ArrayList<Dorm>();
 		List<Map<String, String>> list;
-		if (aXLSX.isXLSX(filePath)) {
+		
 			try {
-				list = aXLSX.analysisFile(filePath);
+				list = aXLSX.analysisFile(file);
 				// 获得对应的映射
 				Map<String, String> map = loadXML.load("AnalysisXLSX.xml");
 				// 初始宿舍id
@@ -144,21 +142,17 @@ public class DormServiceImpl implements DormService {
 			} catch (DocumentException e) {
 				result = "AnalysisXLSX.xml配置文件出错";
 			}
-		} else {
-			result = "文件格式错误";
-		}
-
+		
 		return result;
 	}
 
 	@Override
-	public String batchAdditionIpAddress(String filePath) {
+	public String batchAdditionIpAddress(MultipartFile file) {
 		String result = "";
 		List<Dorm> dorms = new ArrayList<Dorm>();
 		List<Map<String, String>> list;
-		if (aXLSX.isXLSX(filePath)) {
 			try {
-				list = aXLSX.analysisFile(filePath);
+				list = aXLSX.analysisFile(file);
 				// 获得对应的映射
 				Map<String, String> map = loadXML.load("AnalysisXLSX.xml");
 				// 初始宿舍id
@@ -217,21 +211,16 @@ public class DormServiceImpl implements DormService {
 			} catch (DocumentException e) {
 				result = "AnalysisXLSX.xml配置文件出错";
 			}
-		} else {
-			result = "文件格式错误";
-		}
-
 		return result;
 	}
 
 	@Override
-	public String batchAdditionDevice(String filePath) {
+	public String batchAdditionDevice(MultipartFile file) {
 		String result = "";
 		List<Dorm> dorms = new ArrayList<Dorm>();
 		List<Map<String, String>> list;
-		if (aXLSX.isXLSX(filePath)) {
 			try {
-				list = aXLSX.analysisFile(filePath);
+				list = aXLSX.analysisFile(file);
 				// 获得对应的映射
 				Map<String, String> map = loadXML.load("AnalysisXLSX.xml");
 				// 初始宿舍id
@@ -287,9 +276,6 @@ public class DormServiceImpl implements DormService {
 			} catch (DocumentException e) {
 				result = "AnalysisXLSX.xml配置文件出错";
 			}
-		} else {
-			result = "文件格式错误";
-		}
 		return result;
 	}
 

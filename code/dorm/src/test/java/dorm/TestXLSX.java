@@ -70,11 +70,11 @@ public class TestXLSX {
 	}
 
 	// 测试analysisiXLS
-	@Test
+/*	@Test
 	public void analysisiXLSXTest() throws IOException {
 		System.out.println(new AnalysisXLSX().analysisFile("C:\\Users\\TW\\Desktop\\dorm.xls"));
 	}
-
+*/
 	@Test
 	public void testReflex() throws NoSuchFieldException, SecurityException {
 		Class c = Dorm.class;

@@ -19,7 +19,7 @@ public class DormServiceImplTest {
     @Autowired
     private DormService ds ;
     // 测试batchAdditionDorm方法
-    @Test
+   /* @Test
     public void batchAdditionDormTest() {
     	System.out.println(ds.batchAdditionDorm("C:\\Users\\TW\\Desktop\\dorm.xls"));
     }
@@ -37,5 +37,5 @@ public class DormServiceImplTest {
     @Test
     public void batchAdditionDeviceTest() {
     	System.out.println(ds.batchAdditionDevice("C:\\Users\\TW\\Desktop\\宿舍仪器.xlsx"));
-    }
+    }*/
 }

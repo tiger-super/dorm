@@ -1,17 +1,22 @@
 package tiger.dorm.control;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
 import tiger.dorm.entity.Dorm;
 import tiger.dorm.service.DormService;
 
 @Controller
 @RequestMapping("/dorm")
+
 public class DormManagerControl {
 	@Autowired
 	DormService ds ;
@@ -32,6 +37,20 @@ public class DormManagerControl {
 	@RequestMapping("/show")
 	public String showQueryDorm() {
 		return "dorm/addDorm";
+	}
+	
+	// 批量添加宿舍信息
+	@RequestMapping("/add")
+	@ResponseBody
+	public Map<String,String> addDormFromXLSX(@RequestParam("fileupload")MultipartFile file) {
+		Map<String,String> map = new HashMap<String,String>();
+		if(file.isEmpty()) {
+			map.put("result", "文件为空");
+		}else {			
+			String result = ds.batchAdditionDorm(file);
+			map.put("result", result);
+		}
+		return map;
 	}
 	
 }

@@ -9,12 +9,13 @@
 	    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="/static/css/bootstrap/fileinput.min.css" />
 		<script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="/static/js/bootstrap/fileinput.min.js" ></script>		
-
+        <script type="text/javascript" src="/static/js/bootstrap/fileinput.min.js" ></script>
+         <script type="text/javascript" src="/static/js/bootstrap/locales/zh.js" ></script>			
+        <script type="text/javascript" src="/static/js/dorm/addDorm.js" ></script>	
 	<body>
-        <form style="margin-top: 50px;">
-        	<input id = "input-b1" name = "input-b1" type = "file" class = "file" data-browse-on-zone-click = "true">    
-        </form>
+	<div class ="file-loading">
+       <input id = "fileupload" name="fileupload" type = "file"  multiple>
+       </div>
 	</body>
 <script>
 </script>

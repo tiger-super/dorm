@@ -15,20 +15,21 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 @Component
 public class AnalysisXLSX {
    // 判断是否为xlsx
-   public boolean isXLSX(String filePath) {
+/*   public boolean isXLSX(String filePath) {
     	 if(filePath.endsWith(".xlsx") || filePath.endsWith(".xls")) {
     		 return true;
     	 }else {
     		 return false;
     	 }
-     }
+     }*/
     
-   public List<Map<String,String>> analysisFile(String filePath) throws IOException {
+   public List<Map<String,String>> analysisFile(MultipartFile file) throws IOException {
 	   List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-		   InputStream is = new FileInputStream(filePath);
+		   InputStream is = file.getInputStream();
 		   XSSFWorkbook wb = new XSSFWorkbook(is);
 		   Sheet sheet = wb.getSheetAt(0);
 		   // 获得最大行
